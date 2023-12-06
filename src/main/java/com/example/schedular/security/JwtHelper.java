@@ -23,16 +23,16 @@ public class JwtHelper
     @Value("${jwt.secret-key}")
     private String secret;
 
-    public boolean isTokenBelongsToUser(String token, long userId) {
+    public boolean isTokenBelongsToUser(String token, String email) {
         try {
             // Parse the token and verify the signature
             Claims claims = Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
 
             // Extract user ID from the claims
-            long tokenUserId = Long.parseLong(claims.getSubject());
+            String user_email = claims.getSubject();
 
             // Compare the user ID from the token with the specified user ID
-            return tokenUserId == userId;
+            return user_email.equals(email);
 
         } catch (Exception e) {
             // Token validation failed

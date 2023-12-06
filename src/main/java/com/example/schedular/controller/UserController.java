@@ -75,7 +75,7 @@ public class UserController
             String email = jwtHelper.getUsernameFromToken(token.substring(7));
             User user = userRepository.findByUsername(email).orElse(null);
 
-            if (jwtHelper.isTokenBelongsToUser(token,user.getUser_id()))
+            if (jwtHelper.isTokenBelongsToUser(token,email))
             {
                     return new ResponseEntity<>(user, HttpStatus.OK);
 
