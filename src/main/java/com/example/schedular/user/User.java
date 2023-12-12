@@ -34,7 +34,7 @@ public class User implements UserDetails
     private String email;
     private Long mobile;
     private String password;
-    private String address;
+//    private String address;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
