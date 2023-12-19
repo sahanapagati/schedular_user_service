@@ -31,6 +31,8 @@ public class UserController
     private UserRepository userRepository;
 
 
+
+    @CrossOrigin
     @PostMapping("/signup")
     public ResponseEntity<String> signUp(@RequestBody User user)
     {
@@ -54,7 +56,7 @@ public class UserController
     public ResponseEntity<User> updateProfile(@RequestBody User user)
     {
         User updated=userService.updateProfile(user);
-        return new ResponseEntity<>(updated,HttpStatus.UNAUTHORIZED);
+        return new ResponseEntity<>(updated,HttpStatus.OK);
     }
     @GetMapping("/home/get_profile")
     public ResponseEntity<User> getProfile(@RequestHeader("Authorization") String token)

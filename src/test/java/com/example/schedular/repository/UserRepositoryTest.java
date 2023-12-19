@@ -1,2 +1,9 @@
-package com.example.schedular.repository;public class UserRepositoryTest {
+package com.example.schedular.repository;
+
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+
+@DataJpaTest
+public class UserRepositoryTest
+{
+
 }
